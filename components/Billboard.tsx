@@ -3,11 +3,11 @@ import { AiOutlineInfoCircle, AiOutlinePlus } from 'react-icons/ai';
 
 import PlayButton from '@/components/PlayButton';
 import useBillboard from '@/hooks/useBillboard';
-import useInfoModal from '@/hooks/useInfoModalStore';
+import useInfoModalStore from '@/hooks/useInfoModalStore';
 
 const Billboard: React.FC = () => {
   const { data } = useBillboard();
-  const { openModal } = useInfoModal();  
+  const { openModal } = useInfoModalStore();  
 
   const handleOpenModal = useCallback(() => {
     openModal(data?.id);
