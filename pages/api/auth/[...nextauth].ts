@@ -9,7 +9,7 @@ import { PrismaAdapter } from "@next-auth/prisma-adapter";
 
 import prismadb from '@/libs/prismadb';
 
-export default NextAuth ({
+export const authOptions: AuthOptions = {
   providers: [
     FacebookProvider({
       clientId: process.env.FACEBOOK_ID || '',
@@ -70,4 +70,6 @@ export default NextAuth ({
     secret: process.env.NEXTAUTH_JWT_SECRET,
   },
   secret: process.env.NEXTAUTH_SECRET
-});
+};
+
+export default NextAuth(authOptions);
