@@ -60,7 +60,7 @@ const App = () => {
      <img src="/images/logo.png" className="h-40" alt="Logo" />
      </nav>
      <div className="flex flex-col justify-center">
-      <h1 className="text-white text-3xl md:text-6xl font-bold">Who's watching Showmax?</h1>
+      <h1 className="text-white text-3xl md:text-6xl font-bold">Who&#39;s watching?</h1>
       <div className="flex items-center justify-center gap-8 mt-10">
        <div onClick={() => selectProfile()}>
           <UserCard name={currentUser?.name} />
