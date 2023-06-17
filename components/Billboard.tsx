@@ -20,12 +20,20 @@ const Billboard: React.FC = () => {
       poster={data?.thumbnailUrl} 
         className="w-full h-[50.25vw] relative object-cover brightness-[20%]">
       </video>
+      <video 
+       poster={data?.thumbnailUrl}
+       autoPlay
+       loop
+       className='absolute brightness-85% w-7/12 h-[30vw] duration-700 pr-12 right-0 top-24 rounded-md shadow-xl cursor-pointer hidden lg:flex'
+       src={data?.videoUrl}
+       > 
+       </video>
       <div className="absolute top-[30%] md:top-[40%] ml-4 md:ml-16">
         <p className="text-white text-1xl md:text-4xl h-full w-2/3 lg:text-5xl font-bold drop-shadow-xl">
           {data?.title}
         </p>        
         <p className="text-white text-[8px] font-semibold md:text-lg mt-2 md:mt-8 w-2/3 lg:w-2/3 drop-shadow-xl">
-          {data?.title} | 2023 | {data?.duration} | TV-PG:GUIDANCE
+          {data?.title} | {data?.released} | {data?.duration} | {data?.restriction}
         </p>
         <p className="text-white text-[8px] md:text-lg mt-2 md:mt-8 w-[90%] md:w-[80%] lg:w-[35%] drop-shadow-xl">
           {data?.description}
@@ -60,14 +68,6 @@ const Billboard: React.FC = () => {
           <AiOutlinePlus className="text-white hover:bg-neutral-100 hover:text-black w-4 lg:w-6" />
          </div>
        </div>
-       <video 
-       poster={data?.thumbnailUrl}
-       className='absolute object-cover brightness-75 w-7/12 h-[28vw] -right-0 -top-36  rounded-xl shadow-2xl cursor-pointer hidden lg:flex'
-       autoPlay
-       loop
-       src={data?.videoUrl}
-       > 
-       </video>
      </div>     
    </div>
   )

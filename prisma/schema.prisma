@@ -67,4 +67,6 @@ model Movie {
   thumbnailUrl String
   genre        String
   duration     String
+  released     String
+  restriction  String
 }

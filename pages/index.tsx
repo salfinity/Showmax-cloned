@@ -40,6 +40,11 @@ const Home = () => {
       <div className="pb-40">
         <MovieList title="Top 4 Today" data={movies} />
         <MovieList title="My List" data={favorites} />
+        <MovieList title="Continue Watching" data={movies} />
+        <MovieList title="Movies" data={movies} />
+        <MovieList title="Series" data={movies} />
+        <MovieList title="Tv Channels" data={movies} />
+        <MovieList title="sports" data={movies} />
       </div>
     </>
   )
