@@ -24,7 +24,7 @@ const Billboard: React.FC = () => {
        poster={data?.thumbnailUrl}
        autoPlay
        loop
-       className='absolute brightness-85% w-7/12 h-[30vw] duration-700 pr-12 right-0 top-24 rounded-md shadow-xl cursor-pointer hidden lg:flex'
+       className='absolute brightness-85% w-7/12 h-[30vw] duration-700  right-12 object-cover top-24 rounded-xl shadow-2xl cursor-pointer hidden lg:flex'
        src={data?.videoUrl}
        > 
        </video>
