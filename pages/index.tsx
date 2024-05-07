@@ -1,36 +1,36 @@
 import React from "react";
 import { NextPageContext } from "next";
-import { getSession } from "next-auth/react"
+import { getSession } from "next-auth/react";
 
 import MovieList from "@/components/MovieList";
 import Billboard from "@/components/Billboard";
-import  Navbar  from "@/components/Navbar";
+import Navbar from "@/components/Navbar";
 import useMovieList from "@/hooks/useMovieList";
 import useFavorites from "@/hooks/useFavorites";
 import InfoModal from "@/components/InfoModal";
 import useInfoModalStore from "@/hooks/useInfoModalStore";
 
-export async function getServerSideProps(context: NextPageContext){
+export async function getServerSideProps(context: NextPageContext) {
   const session = await getSession(context);
 
-  if(!session) {
-    return{
+  if (!session) {
+    return {
       redirect: {
-        destination: '/auth',
+        destination: "/auth",
         permanent: false,
-      }
-    }
+      },
+    };
   }
 
   return {
-    props: {}
-  }
+    props: {},
+  };
 }
 
 const Home = () => {
-  const {data: movies = [] } = useMovieList();
-  const {data: favorites = [] } = useFavorites();
-  const {isOpen, closeModal} = useInfoModalStore();
+  const { data: movies = [] } = useMovieList();
+  const { data: favorites = [] } = useFavorites();
+  const { isOpen, closeModal } = useInfoModalStore();
 
   return (
     <>
@@ -47,7 +47,7 @@ const Home = () => {
         <MovieList title="sports" data={movies} />
       </div>
     </>
-  )
-}
+  );
+};
 
 export default Home;
