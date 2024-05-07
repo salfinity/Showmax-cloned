@@ -1,11 +1,11 @@
-import { create } from 'zustand';
+import { create } from "zustand";
 
 export interface ModalStoreInterface {
   movieId?: string;
   isOpen: boolean;
   openModal: (movieId: string) => void;
   closeModal: () => void;
-};
+}
 
 const useInfoModalStore = create<ModalStoreInterface>((set) => ({
   movieId: undefined,

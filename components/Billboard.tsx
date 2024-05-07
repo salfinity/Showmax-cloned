@@ -1,39 +1,38 @@
-import React, { useCallback } from 'react';
-import { AiOutlineInfoCircle, AiOutlinePlus } from 'react-icons/ai';
+import React, { useCallback } from "react";
+import { AiOutlineInfoCircle, AiOutlinePlus } from "react-icons/ai";
 
-import PlayButton from '@/components/PlayButton';
-import useBillboard from '@/hooks/useBillboard';
-import useInfoModalStore from '@/hooks/useInfoModalStore';
+import PlayButton from "@/components/PlayButton";
+import useBillboard from "@/hooks/useBillboard";
+import useInfoModalStore from "@/hooks/useInfoModalStore";
 
 const Billboard: React.FC = () => {
   const { data } = useBillboard();
-  const { openModal } = useInfoModalStore();  
+  const { openModal } = useInfoModalStore();
 
   const handleOpenModal = useCallback(() => {
     openModal(data?.id);
-  }, [openModal, data?.id]);  
-
+  }, [openModal, data?.id]);
 
   return (
     <div className="relative w-full h-[54.25vw]">
-      <video 
-      poster={data?.thumbnailUrl} 
-        className="w-full h-[50.25vw] relative object-cover brightness-[20%]">
-      </video>
-      <video 
-       poster={data?.thumbnailUrl}
-       autoPlay
-       loop
-       className='absolute brightness-85% w-7/12 h-[30vw] duration-700  right-12 object-cover top-24 rounded-xl shadow-2xl cursor-pointer hidden lg:flex'
-       src={data?.videoUrl}
-       > 
-       </video>
+      <video
+        poster={data?.thumbnailUrl}
+        className="w-full h-[50.25vw] relative object-cover brightness-[20%]"
+      ></video>
+      <video
+        poster={data?.thumbnailUrl}
+        autoPlay
+        loop
+        className="absolute brightness-85% w-7/12 h-[30vw] duration-700  right-12 object-cover top-24 rounded-xl shadow-2xl cursor-pointer hidden lg:flex"
+        src={data?.videoUrl}
+      ></video>
       <div className="absolute top-[30%] md:top-[40%] ml-4 md:ml-16">
         <p className="text-white text-1xl md:text-4xl h-full w-2/3 lg:text-5xl font-bold drop-shadow-xl">
           {data?.title}
-        </p>        
+        </p>
         <p className="text-white text-[8px] font-semibold md:text-lg mt-2 md:mt-8 w-2/3 lg:w-2/3 drop-shadow-xl">
-          {data?.title} | {data?.released} | {data?.duration} | {data?.restriction}
+          {data?.title} | {data?.released} | {data?.duration} |{" "}
+          {data?.restriction}
         </p>
         <p className="text-white text-[8px] md:text-lg mt-2 md:mt-8 w-[90%] md:w-[80%] lg:w-[35%] drop-shadow-xl">
           {data?.description}
@@ -60,16 +59,16 @@ const Billboard: React.FC = () => {
               hover:bg-white
               transition
             "
-            >
-              <AiOutlineInfoCircle className="w-4 md:w-7 mr-1" />
-              More Info
+          >
+            <AiOutlineInfoCircle className="w-4 md:w-7 mr-1" />
+            More Info
           </button>
           <div className="cursor-pointer group/item w-6 h-6 lg:w-10 lg:h-10 border-white border-2 rounded-full flex justify-center items-center transition hover:bg-neutral-100">
-          <AiOutlinePlus className="text-white hover:bg-neutral-100 hover:text-black w-4 lg:w-6" />
-         </div>
-       </div>
-     </div>     
-   </div>
-  )
-}
+            <AiOutlinePlus className="text-white hover:bg-neutral-100 hover:text-black w-4 lg:w-6" />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 export default Billboard;

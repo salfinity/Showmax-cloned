@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface InputProps {
   id: string;
@@ -32,9 +32,9 @@ const Input: React.FC<InputProps> = ({ id, onChange, value, label, type }) => {
            peer
            invalid:border-b-1
         "
-        placeholder=" " 
+        placeholder=" "
       />
-      <label  
+      <label
         className="
           absolute 
           text-md
@@ -52,11 +52,12 @@ const Input: React.FC<InputProps> = ({ id, onChange, value, label, type }) => {
           peer-focus:scale-75
           peer-focus:-translate-y-3
       "
-      htmlFor={id}>
-       {label}
+        htmlFor={id}
+      >
+        {label}
       </label>
     </div>
-  )
-}
+  );
+};
 
 export default Input;

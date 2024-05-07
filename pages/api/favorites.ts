@@ -7,11 +7,11 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  try {
-    if (req.method !== "GET") {
-      return res.status(405).end();
-    }
+  if (req.method !== "GET") {
+    return res.status(405).end();
+  }
 
+  try {
     const { currentUser } = await serverAuth(req, res);
 
     const favoritedMovies = await prismadb.movie.findMany({
